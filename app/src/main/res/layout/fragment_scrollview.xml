@@ -1,0 +1,96 @@
+<!--
+  Copyright 2014 Soichiro Kashima
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<com.github.ksoichiro.android.observablescrollview.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/padding" />
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="210dp"
+            android:src="@mipmap/pepsi"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:text="
+2014年1月16日 - 发现很多开源库都有这个效果,比如ListViewAnimations, android-swipelistview等等,我看了下实现原理,使用的是Jake Wharton的动画开源库NineOldAndroid...
+blog.csdn.net/xiaanmin...  - 百度快照 - 88%好评
+Android 开源动画框架:NineOldAndroids - OPEN 开发经验库
+2014年9月13日 -  如果你熟悉Honeycomb animation API 的话,那么使用就非常简单了,只需要将import android.animation.ObjectAnimator替换为 com.nineoldandroids.anima...
+www.open-open.com/lib/...  - 百度快照 - 73%好评
+NineOldAndroids
+
+查看此网页的中文翻译，请点击 翻译此页
+Android library for using the Honeycomb (Android 3.0) animation API on all versions of the platform back to 1.0!
+nineoldandroids.com/  - 百度快照
+直接拿来用!最火的Android开源项目(二)-CSDN.NET
+
+2013年5月8日 -  23. NineOldAndroids 自Android 3.0以上的版本,SDK新增了一个android.animation包,里面的类都是跟动画效果实现相关的,通过Honeycomb API,能够实现非常复杂的动画效果...
+www.csdn.net/article/2...  - 百度快照 - 78%好评
+有用过NineOldAndroids的吗_百度知道
+1个回答 - 提问时间: 2015年04月13日
+最佳答案: 做Android开发的同学很多都知道或者使用过一个动画库,那就是NineOldAndroids,它的作者及其牛X,好几个著名的开源库都是他的作品,具体大家可以看他的 Jake...
+zhidao.baidu.com/link?...  - 79%好评
+android studio怎么找不到com,nineoldandroid...	1个回答	2016-01-15
+更多知道相关问题>>
+android开源动画库nineoldandroids - djun100的专栏 - 博客频道 -...
+2013年8月8日 - 项目官网地址:http://nineoldandroids.com/ 使用这个库的原因是android3.0之后出了新的animation API,但是android3.0以下的不支持 这个库完成了这个...
+blog.csdn.net/djun100/...  - 百度快照 - 88%好评
+Android动画进阶—使用开源动画库nineoldandroids_洛水斜阳_新浪...
+2014年6月5日 -  Android动画进阶—使用开源动画库nineoldandroids (2014-06-05 17:38:56) 转载▼ 标签: 动画库 开源 文章 进阶 分类: Android 相
+2014年1月16日 - 发现很多开源库都有这个效果,比如ListViewAnimations, android-swipelistview等等,我看了下实现原理,使用的是Jake Wharton的动画开源库NineOldAndroid...
+blog.csdn.net/xiaanmin...  - 百度快照 - 88%好评
+Android 开源动画框架:NineOldAndroids - OPEN 开发经验库
+2014年9月13日 -  如果你熟悉Honeycomb animation API 的话,那么使用就非常简单了,只需要将import android.animation.ObjectAnimator替换为 com.nineoldandroids.anima...
+www.open-open.com/lib/...  - 百度快照 - 73%好评
+NineOldAndroids
+
+查看此网页的中文翻译，请点击 翻译此页
+Android library for using the Honeycomb (Android 3.0) animation API on all versions of the platform back to 1.0!
+nineoldandroids.com/  - 百度快照
+直接拿来用!最火的Android开源项目(二)-CSDN.NET
+
+2013年5月8日 -  23. NineOldAndroids 自Android 3.0以上的版本,SDK新增了一个android.animation包,里面的类都是跟动画效果实现相关的,通过Honeycomb API,能够实现非常复杂的动画效果...
+www.csdn.net/article/2...  - 百度快照 - 78%好评
+有用过NineOldAndroids的吗_百度知道
+1个回答 - 提问时间: 2015年04月13日
+最佳答案: 做Android开发的同学很多都知道或者使用过一个动画库,那就是NineOldAndroids,它的作者及其牛X,好几个著名的开源库都是他的作品,具体大家可以看他的 Jake...
+zhidao.baidu.com/link?...  - 79%好评
+android studio怎么找不到com,nineoldandroid...	1个回答	2016-01-15
+更多知道相关问题>>
+android开源动画库nineoldandroids - djun100的专栏 - 博客频道 -...
+2013年8月8日 - 项目官网地址:http://nineoldandroids.com/ 使用这个库的原因是android3.0之后出了新的animation API,但是android3.0以下的不支持 这个库完成了这个...
+blog.csdn.net/djun100/...  - 百度快照 - 88%好评
+Android动画进阶—使用开源动画库nineoldandroids_洛水斜阳_新浪...
+2014年6月5日 -  Android动画进阶—使用开源动画库nineoldandroids (2014-06-05 17:38:56) 转载▼ 标签: 动画库 开源 文章 进阶 分类: Android 相" />
+    </LinearLayout>
+</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

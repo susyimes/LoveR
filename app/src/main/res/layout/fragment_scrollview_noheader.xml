@@ -1,0 +1,45 @@
+<!--
+  Copyright 2014 Soichiro Kashima
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<com.github.ksoichiro.android.observablescrollview.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:src="@mipmap/pic1"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:textSize="25sp"
+            android:text="百奇(日语：ポッキー;英语：Pocky)是一种由日本江崎格力高株式会社生产的日式零食。最传统形式的百奇于1966年以巧克特的名字发售，由覆盖巧克力的饼干条所构成。百奇瞬间打入了日本的年轻人市场，并在首两年产生了300亿日元的销售额。名字后来改为百奇，模仿咬下百奇时所发出的声音的日语拟声词“ポッキン”(Pokkin)。接着原味推出的为1971年拥有杏仁涂层的杏仁百奇；以及1977年推出的草莓百奇。该产品包含了各种变化如牛奶、芒果慕斯、绿茶与椰子口味的涂层，以及一些主题产品如拥有鲜艳装饰条纹涂层的特色百奇；以及男之百奇，一种又甜又苦的黑巧克力“成熟”版本。" />
+    </LinearLayout>
+</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

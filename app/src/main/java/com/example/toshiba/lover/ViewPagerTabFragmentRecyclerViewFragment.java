@@ -20,12 +20,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.toshiba.lover.BindersAdapter.ColBinderAdapter;
 import com.example.toshiba.lover.recycleview_tool.DividerGridItemDecoration;
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
@@ -41,16 +43,32 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
 
         final ObservableRecyclerView recyclerView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
        // recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(true);
-       recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,
-                StaggeredGridLayoutManager.VERTICAL));
-        recyclerView.addItemDecoration(new DividerGridItemDecoration(this.getContext()));
+        recyclerView.setHasFixedSize(false);
+        //adapter
+        ColBinderAdapter adapter=new ColBinderAdapter();
+        recyclerView.setAdapter(adapter);
+        //item's span
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+              if(position<=3){
+                  return 2;
+              }else {
+                  return 1;
+              }
+            }
+        });
+        recyclerView.setLayoutManager(manager);
+       //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+
+       // recyclerView.addItemDecoration(new DividerGridItemDecoration(this.getContext()));
        // recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         //recyclerView.addItemDecoration();
 
 
-        setDummyData(recyclerView);
+       // setDummyData(recyclerView);
 
         Fragment parentFragment = getParentFragment();
         ViewGroup viewGroup = (ViewGroup) parentFragment.getView();

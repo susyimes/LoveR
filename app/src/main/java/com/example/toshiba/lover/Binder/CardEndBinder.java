@@ -21,15 +21,15 @@ import de.hdodenhof.circleimageview.CircleImageView;
 /**
  * Created by toshiba on 2016/5/11.
  */
-public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
+public class CardEndBinder extends DataBinder<CardEndBinder.ViewHolder> {
     private Context context;
     private List<Integer> imglist=new ArrayList();
     private List<Integer> imglist2=new ArrayList();
-    public CardBinder(DataBindAdapter dataBindAdapter) {
+    public CardEndBinder(DataBindAdapter dataBindAdapter) {
 
         super(dataBindAdapter);
-
-        addimg();
+        for (int i=0;i<100;i++){
+        addimg();}
 
     }
 
@@ -47,7 +47,7 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
         imglist.add(R.drawable.a11);
         imglist.add(R.drawable.a12);
         imglist.add(R.drawable.a13);
-
+        imglist.add(R.drawable.a14);
 
         imglist2.add(R.mipmap.suscustom);
         imglist2.add(R.drawable.a01);
@@ -61,7 +61,7 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
         imglist2.add(R.mipmap.suscustom);
         imglist2.add(R.drawable.a13);
         imglist2.add(R.drawable.a14);
-
+        imglist2.add(R.mipmap.suscustom);
 
 
     }
@@ -83,7 +83,7 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
     }
 
     @Override
-    public CardBinder.ViewHolder newViewHolder(ViewGroup parent) {
+    public CardEndBinder.ViewHolder newViewHolder(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(
                 R.layout.layout_card, parent, false);
 
@@ -91,7 +91,7 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
     }
 
     @Override
-    public void bindViewHolder(final CardBinder.ViewHolder holder, int position) {
+    public void bindViewHolder(final CardEndBinder.ViewHolder holder, int position) {
 
         Picasso.with(holder.imgc1.getContext())
                 .load(imglist.get(position))

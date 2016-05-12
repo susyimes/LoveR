@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.toshiba.lover.Binder.CardBinder;
+import com.example.toshiba.lover.Binder.CardEndBinder;
 import com.example.toshiba.lover.Binder.HeadBinder;
 import com.example.toshiba.lover.BindersAdapter.ColBinderAdapter;
 import com.example.toshiba.lover.recycleview_tool.DividerGridItemDecoration;
@@ -69,6 +70,44 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
 
             }
         });
+
+
+        CardBinder cardBinder2=adapter.getDataBinder(4);
+        cardBinder2.setOnItemClickLitener(new CardBinder.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+        CardBinder cardBinder3=adapter.getDataBinder(6);
+        cardBinder3.setOnItemClickLitener(new CardBinder.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+        CardEndBinder cardBinder8=adapter.getDataBinder(8);
+        cardBinder8.setOnItemClickLitener(new CardEndBinder.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
 /////////////////////////////////////////////////////
         HeadBinder headBinder=adapter.getDataBinder(0);
 
@@ -95,10 +134,10 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if(position<=3){
+                if(position<=3||position==14||position==27||position==40){
                     return 6;
                 }else {
-                    if (position==24||position==25||position==26){
+                    if (position==41||position==42||position==43){
                         return 2;
                     }else {
                     return 3;}

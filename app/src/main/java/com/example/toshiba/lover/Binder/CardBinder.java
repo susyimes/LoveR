@@ -1,5 +1,6 @@
 package com.example.toshiba.lover.Binder;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,22 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
     public CardBinder(DataBindAdapter dataBindAdapter) {
         super(dataBindAdapter);
     }
+    private Context context;
+
+
+    public interface OnItemClickLitener
+    {
+        void onItemClick(View view, int position);
+
+        void onItemLongClick(View view, int position);
+    }
+
+    private OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(OnItemClickLitener mOnItemClickLitener)
+    {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+    }
 
     @Override
     public CardBinder.ViewHolder newViewHolder(ViewGroup parent) {
@@ -28,13 +45,22 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
     }
 
     @Override
-    public void bindViewHolder(CardBinder.ViewHolder holder, int position) {
+    public void bindViewHolder(final CardBinder.ViewHolder holder, int position) {
+
         Picasso.with(holder.imgc1.getContext())
                 .load(R.mipmap.pepsi)
                 .into(holder.imgc1);
-        Picasso.with(holder.imgc2.getContext())
-                .load(R.mipmap.suscustom)
-                .into(holder.imgc2);
+        if(mOnItemClickLitener!=null){
+            holder.imgc1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, pos);
+
+                }
+            });
+        }
+
     }
 
     @Override
@@ -49,7 +75,7 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
             super(view);
 
            imgc1 = (ImageView) view.findViewById(R.id.imgc1);
-            imgc2 = (ImageView) view.findViewById(R.id.imgc2);
+
     }
     }
 }

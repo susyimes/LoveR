@@ -8,12 +8,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.toshiba.lover.R;
+import com.example.toshiba.lover.viewPager.LoopViewPager;
+import com.example.toshiba.lover.viewPager.adapter.SamplePagerAdapter;
 import com.squareup.picasso.Picasso;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBinder;
 
+import me.relex.circleindicator.CircleIndicator;
+
 /**
- * Created by toshiba on 2016/5/11.
+ * Created by susyimes on 2016/5/11.
  */
 public class HeadBinder extends DataBinder<HeadBinder.ViewHolder> {
     public HeadBinder(DataBindAdapter dataBindAdapter) {
@@ -29,9 +33,9 @@ public class HeadBinder extends DataBinder<HeadBinder.ViewHolder> {
 
     @Override
     public void bindViewHolder(HeadBinder.ViewHolder holder, int position) {
-        Picasso.with(holder.imgtest.getContext())
+       /* Picasso.with(holder.imgtest.getContext())
                 .load(R.mipmap.backpic2)
-                .into(holder.imgtest);
+                .into(holder.imgtest);*/
     }
 
     @Override
@@ -40,12 +44,15 @@ public class HeadBinder extends DataBinder<HeadBinder.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView text1;
-        ImageView imgtest;
+        LoopViewPager viewpager;
+        CircleIndicator indicator;
         public ViewHolder(View view) {
             super(view);
-            text1 = (TextView) view.findViewById(R.id.text1);
-           imgtest = (ImageView) view.findViewById(R.id.imgtest);
+            viewpager=(LoopViewPager) view.findViewById(R.id.viewpager);
+            indicator = (CircleIndicator) view.findViewById(R.id.indicator);
+            viewpager.setAdapter(new SamplePagerAdapter());
+            indicator.setViewPager(viewpager);
+
         }
     }
 }

@@ -1,11 +1,13 @@
 package com.example.toshiba.lover.Binder;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.toshiba.lover.R;
 import com.squareup.picasso.Picasso;
@@ -13,10 +15,14 @@ import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBinder;
 
 /**
- * Created by toshiba on 2016/5/11.
+ * Created by susyimes on 2016/5/11.
  */
 public class FirBinder extends DataBinder<FirBinder.ViewHolder> {
+
+
+
     public FirBinder(DataBindAdapter dataBindAdapter) {
+
         super(dataBindAdapter);
     }
 
@@ -28,9 +34,12 @@ public class FirBinder extends DataBinder<FirBinder.ViewHolder> {
     }
 
     @Override
-    public void bindViewHolder(FirBinder.ViewHolder holder, int position) {
+    public void bindViewHolder(FirBinder.ViewHolder holder, final int position) {
+
         holder.textf1.setText("本周最佳");
+
         holder.textf2.setText("历史总榜");
+
     }
 
     @Override

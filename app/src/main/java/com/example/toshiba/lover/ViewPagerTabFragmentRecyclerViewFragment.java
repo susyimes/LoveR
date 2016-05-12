@@ -26,17 +26,22 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.toshiba.lover.Binder.CardBinder;
+import com.example.toshiba.lover.Binder.HeadBinder;
 import com.example.toshiba.lover.BindersAdapter.ColBinderAdapter;
 import com.example.toshiba.lover.recycleview_tool.DividerGridItemDecoration;
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
 
 /**
  * Fragment for ViewPagerTabFragmentActivity.
  * ScrollView callbacks are handled by its parent fragment, not its parent activity.
  */
 public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
@@ -47,29 +52,47 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
         //adapter
         ColBinderAdapter adapter=new ColBinderAdapter();
         recyclerView.setAdapter(adapter);
-        //item's span
+
+////////////////////////////////////////////////////
+        inItemClick();
+        CardBinder cardBinder=adapter.getDataBinder(2);
+        cardBinder.setOnItemClickLitener(new CardBinder.OnItemClickLitener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getContext(),position+"",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+
+            }
+        });
+/////////////////////////////////////////////////////
+        HeadBinder headBinder=adapter.getDataBinder(0);
+
+/////////////////////////////////////////////////////
+        inManager();
         GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
+
+        //item's span
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-              if(position<=3){
-                  return 2;
-              }else {
-                  return 1;
-              }
+                if(position<=3){
+                    return 2;
+                }else {
+                    return 1;
+                }
             }
         });
         recyclerView.setLayoutManager(manager);
-       //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
-       // recyclerView.addItemDecoration(new DividerGridItemDecoration(this.getContext()));
-       // recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        //recyclerView.addItemDecoration();
+        unWork();
 
 
-       // setDummyData(recyclerView);
 
+
+//////////////////////////////////////////////////////////
         Fragment parentFragment = getParentFragment();
         ViewGroup viewGroup = (ViewGroup) parentFragment.getView();
         if (viewGroup != null) {
@@ -80,4 +103,35 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
         }
         return view;
     }
+
+
+
+    private void inManager() {
+
+
+    }
+
+    private void inItemClick() {
+
+
+    }
+
+    private void unWork() {
+        //recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+
+        // recyclerView.addItemDecoration(new DividerGridItemDecoration(this.getContext()));
+        // recyclerView.setItemAnimator(new DefaultItemAnimator());
+
+        //recyclerView.addItemDecoration();
+
+
+        // setDummyData(recyclerView);
+
+    }
+
+
+
+
+
+
 }

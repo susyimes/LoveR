@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.toshiba.lover.R;
+import com.example.toshiba.lover.frameview.SusComicTextView;
 import com.squareup.picasso.Picasso;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBinder;
@@ -48,13 +49,13 @@ public class FirBinder extends DataBinder<FirBinder.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView textf1;
-        TextView textf2;
+        SusComicTextView textf1;
+        SusComicTextView textf2;
 
         public ViewHolder(View view) {
             super(view);
-            textf1 = (TextView) view.findViewById(R.id.textf1);
-            textf2 = (TextView) view.findViewById(R.id.textf2);
+            textf1 = (SusComicTextView) view.findViewById(R.id.textf1);
+            textf2 = (SusComicTextView) view.findViewById(R.id.textf2);
 
         }
     }

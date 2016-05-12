@@ -33,6 +33,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import com.example.toshiba.lover.widget.SlidingTabLayout;
 import com.github.ksoichiro.android.observablescrollview.CacheFragmentStatePagerAdapter;
@@ -69,12 +70,16 @@ public class ViewPagerTabFragmentParentFragment extends BaseFragment implements 
         mPager = (ViewPager) view.findViewById(R.id.pager);
         mPager.setAdapter(mPagerAdapter);
 
-        SlidingTabLayout slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+        final SlidingTabLayout slidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         slidingTabLayout.setCustomTabView(R.layout.tab_indicator, android.R.id.text1);
 
 
 
+
+
+
         slidingTabLayout.setSelectedIndicatorColors(getResources().getColor(R.color.white));
+
         slidingTabLayout.setDistributeEvenly(true);
         slidingTabLayout.setViewPager(mPager);
 

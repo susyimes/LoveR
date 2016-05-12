@@ -34,6 +34,7 @@ import com.example.toshiba.lover.BindersAdapter.ColBinderAdapter;
 import com.example.toshiba.lover.recycleview_tool.DividerGridItemDecoration;
 import com.github.ksoichiro.android.observablescrollview.ObservableRecyclerView;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCallbacks;
+import com.yalantis.phoenix.PullToRefreshView;
 import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
 
 /**
@@ -41,10 +42,11 @@ import com.yqritc.recyclerviewmultipleviewtypesadapter.DataBindAdapter;
  * ScrollView callbacks are handled by its parent fragment, not its parent activity.
  */
 public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
+    private PullToRefreshView mPullToRefreshView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
+         View view = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
         final ObservableRecyclerView recyclerView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
        // recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -70,18 +72,36 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
 /////////////////////////////////////////////////////
         HeadBinder headBinder=adapter.getDataBinder(0);
 
+
+        mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pull_to_refresh);
+
+
+        mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPullToRefreshView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mPullToRefreshView.setRefreshing(false);
+                    }
+                },1000);
+            }
+        });
 /////////////////////////////////////////////////////
         inManager();
-        GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
+        GridLayoutManager manager = new GridLayoutManager(getContext(), 6);
 
         //item's span
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
                 if(position<=3){
-                    return 2;
+                    return 6;
                 }else {
-                    return 1;
+                    if (position==24||position==25||position==26){
+                        return 2;
+                    }else {
+                    return 3;}
                 }
             }
         });

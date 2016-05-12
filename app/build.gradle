@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.example.toshiba.lover"
         minSdkVersion 15
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
     }
@@ -32,4 +32,7 @@ dependencies {
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'com.android.support:cardview-v7:23.3.0'
     compile 'me.relex:circleindicator:1.2.1@aar'
+    compile 'com.yalantis:phoenix:1.2.3'
+    compile 'com.github.traex.rippleeffect:library:1.3'
+
 }

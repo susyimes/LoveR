@@ -32,10 +32,10 @@
         android:minHeight="?attr/actionBarSize"
         app:popupTheme="@style/Theme.AppCompat.Light.DarkActionBar"
         app:theme="@style/Toolbar" >
-        <com.example.toshiba.lover.frameview.SusCusTextView
+        <com.example.toshiba.lover.frameview.SusComicTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="25sp"
             android:text="Love R"
             android:textStyle="bold"
 

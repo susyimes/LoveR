@@ -23,7 +23,7 @@ public class SamplePagerAdapter extends PagerAdapter {
 
     public void  addimg(){
         imglist.add(R.drawable.a02);
-        imglist.add(R.drawable.a03);
+        imglist.add(R.drawable.a10);
         imglist.add(R.drawable.a04);
         imglist.add(R.drawable.a05);
         imglist.add(R.drawable.a06);

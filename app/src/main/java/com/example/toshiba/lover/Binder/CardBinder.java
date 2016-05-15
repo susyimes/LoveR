@@ -94,10 +94,10 @@ public class CardBinder extends DataBinder<CardBinder.ViewHolder> {
     public void bindViewHolder(final CardBinder.ViewHolder holder, int position) {
 
         Picasso.with(holder.imgc1.getContext())
-                .load(imglist.get(position))
+                .load(imglist.get(position)).fit().centerCrop()
                 .into(holder.imgc1);
         Picasso.with(holder.imghead.getContext())
-                .load(imglist2.get(position))
+                .load(imglist2.get(position)).fit().centerCrop()
                 .into(holder.imghead);
         if(mOnItemClickLitener!=null){
             holder.imgc1.setOnClickListener(new View.OnClickListener() {

@@ -52,7 +52,7 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
 
         final ObservableRecyclerView recyclerView = (ObservableRecyclerView) view.findViewById(R.id.scroll);
        // recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setHasFixedSize(false);
+        recyclerView.setHasFixedSize(true);
         //adapter
         ColBinderAdapter adapter=new ColBinderAdapter();
         recyclerView.setAdapter(adapter);

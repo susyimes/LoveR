@@ -59,7 +59,7 @@ public class SamplePagerAdapter extends PagerAdapter {
         ImageView img=new ImageView(view.getContext());
 
           Picasso.with(img.getContext())
-                .load(imglist.get(position))
+                .load(imglist.get(position)).fit().centerCrop()
                 .into(img);
         img.setScaleType(ImageView.ScaleType.CENTER_CROP);
         view.addView(img, ViewGroup.LayoutParams.MATCH_PARENT,

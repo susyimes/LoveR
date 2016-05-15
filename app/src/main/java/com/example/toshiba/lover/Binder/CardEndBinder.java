@@ -29,7 +29,8 @@ public class CardEndBinder extends DataBinder<CardEndBinder.ViewHolder> {
 
         super(dataBindAdapter);
         for (int i=0;i<100;i++){
-        addimg();}
+            addimg();
+      }
 
     }
 
@@ -94,10 +95,10 @@ public class CardEndBinder extends DataBinder<CardEndBinder.ViewHolder> {
     public void bindViewHolder(final CardEndBinder.ViewHolder holder, int position) {
 
         Picasso.with(holder.imgc1.getContext())
-                .load(imglist.get(position))
+                .load(imglist.get(position)).fit().centerCrop()
                 .into(holder.imgc1);
         Picasso.with(holder.imghead.getContext())
-                .load(imglist2.get(position))
+                .load(imglist2.get(position)).fit().centerCrop()
                 .into(holder.imghead);
         if(mOnItemClickLitener!=null){
             holder.imgc1.setOnClickListener(new View.OnClickListener() {

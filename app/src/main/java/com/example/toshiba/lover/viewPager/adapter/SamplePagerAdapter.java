@@ -5,8 +5,10 @@ import android.support.v4.view.PagerAdapter;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.toshiba.lover.R;
 import com.squareup.picasso.Picasso;
@@ -54,13 +56,19 @@ public class SamplePagerAdapter extends PagerAdapter {
         view.removeView((View) object);
     }
 
-    @Override public Object instantiateItem(ViewGroup view, int position) {
+    @Override public Object instantiateItem(final ViewGroup view, final int position) {
 
         ImageView img=new ImageView(view.getContext());
 
           Picasso.with(img.getContext())
                 .load(imglist.get(position)).fit().centerCrop()
                 .into(img);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(view.getContext(),position+"",Toast.LENGTH_SHORT).show();
+            }
+        });
         img.setScaleType(ImageView.ScaleType.CENTER_CROP);
         view.addView(img, ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);

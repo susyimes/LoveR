@@ -16,6 +16,7 @@
 
 package com.example.toshiba.lover;
 
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -113,6 +114,7 @@ public class ViewPagerTabFragmentRecyclerViewFragment extends BaseFragment {
 
 
         mPullToRefreshView = (PullToRefreshView) view.findViewById(R.id.pull_to_refresh);
+
 
 
         mPullToRefreshView.setOnRefreshListener(new PullToRefreshView.OnRefreshListener() {
